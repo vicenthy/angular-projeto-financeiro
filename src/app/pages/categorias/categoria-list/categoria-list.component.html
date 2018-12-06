@@ -1,0 +1,45 @@
+<nav>
+   <ol class="breadcrumb">
+     <li class="breadcrumb-item"> <a routerLink="/">Home</a></li>
+     <li class="breadcrumb-item active"> Categorias</li>
+    </ol>
+</nav>
+<div class="row mb-4">
+  <div class="col-md">
+    <h1 class="h2 border-left pl-2">
+        Categorias
+    </h1>
+  </div>
+  <div class="col md">
+    <a routerLink="nova" class="btn btn-success float-right">
+        + Nova Categoria
+    </a>
+  </div>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr class="bg-primary text-light d-flex">
+      <th class="col-10">Categoria</th>
+      <th class="col-2">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="d-flex"  *ngFor="let categoria of categorias">
+      <td class="col-10">
+        <strong>{{categoria.nome}}</strong><br/>
+        <small>{{categoria.descricao}}</small>
+      </td>
+      <td class="col-2">
+         <a routerLink="editar/{{categoria.id}}" class="btn btn-outline-info btn-sm mr-2">
+            Editar
+         </a>
+         <button (click)="deleteCategoria(categoria.id)" class="btn btn-outline-danger btn-sm">
+          Excluir
+       </button>
+      </td>
+    </tr>
+
+
+  </tbody>
+</table>
